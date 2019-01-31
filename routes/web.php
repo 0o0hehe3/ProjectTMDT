@@ -13,9 +13,9 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('public');
 
-Route::group(['middleware' => ['auth', 'web', ]], function(){
+Route::group(['middleware' => ['auth', 'web','admin']], function(){
 	Route::group(['prefix' => 'admin'], function(){
 		Route::get('/', 'AdminController@index')->name('admin.index');
 		Route::get('/manufacturer/add','ManufacturerController@add')->name('add.manufacturer');

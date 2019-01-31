@@ -45,7 +45,7 @@ class AdminController extends Controller
 				'password' => $inputs['password']
 			], $remember);
 			if($attempt)
-				return redirect('/admin');
+				return redirect()->route('admin.index');
 			else
 				return redirect('/admin/login')->with('messeage','Tai khoan hoac mat khau khong dung');
 		}

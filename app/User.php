@@ -28,8 +28,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    const Admin_Type = 1;
+    const Default_Type = 0;
+
     public function bill()
     {
         return $this->hasMany('App\Bill', 'user_id', 'id');
+    }
+
+    public function checkAdmin()
+    {
+        return $this->level === self::Admin_Type;
     }
 }
