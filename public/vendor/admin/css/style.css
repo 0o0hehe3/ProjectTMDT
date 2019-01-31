@@ -1,0 +1,140 @@
+*{margin:0;padding:0;}
+li{list-style: none;}
+a,a:hover,a:focus,a:link{text-decoration: none;}
+body{}
+
+/*-------- SideBar Left --------*/
+.sidebar{
+	height:100%;
+	padding-right: 0;
+	z-index: 999;
+	top:0;left:0;
+	position: fixed;
+	overflow: hidden;
+	background: url("../images/bg-body.gif") repeat-y top left scroll;
+	width: 220px;
+	overflow-y:auto; 
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sidebar h1.sidebar-title{
+	text-align: center;
+	font-size: 25px;
+	font-weight: 600;
+	color:#ccc;
+	margin:50px 0;
+}
+.sidebar .sidebar-profile{
+	padding:0px 15px 20px 0px;
+	text-align: right;
+}
+.sidebar .sidebar-profile span{
+	color:#888;
+	font-size: 11px;
+}
+.sidebar .sidebar-profile a{
+	color:#ccc;
+	font-size:11px;
+}
+.sidebar .sidebar-profile a:hover{
+	color:#fff;
+}
+
+.sidebar .sidebar-menu{
+	text-align: right;
+}
+.sidebar .sidebar-menu .list-group .list-group-item{
+	padding:0;
+	margin-bottom:10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border:none;
+	background: none;
+}
+.sidebar .sidebar-menu .list-group .list-group-item > a{
+	display: block;
+	background: linear-gradient(-70deg,#79b900,#5da400,#3f8700);
+	background: -webkit-linear-gradient(-70deg,#79b900,#5da400,#3f8700);
+	background: -moz-linear-gradient(-70deg,#79b900,#5da400,#3f8700);
+    box-shadow: 0px -1px 0px 0px #8bd302;
+    -webkit-box-shadow: 0px -1px 0px 0px #8bd302;
+    -moz-box-shadow: 0px -1px 0px 0px #8bd302;
+    padding:7px 15px;
+    border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color:#fff;
+	transition:all 0.3s;
+}
+.sidebar .sidebar-menu .list-group .list-group-item > a:hover{
+	padding-right:25px;
+}
+.sidebar .sidebar-menu .list-group .list-group-item >ul{
+	display: none;
+}
+.sidebar .sidebar-menu .list-group .list-group-item .active{
+	background: #fff;
+	color:#000;font-weight: 600;
+}
+.sidebar .sidebar-menu .list-group .list-group-item >ul >li >a{
+	color:#aaa;
+	padding:0px 15px;
+	display: block;
+	font-size: 12px;
+	line-height: 2.5;
+}
+.sidebar .sidebar-menu .list-group .list-group-item >ul >li >a:hover{
+	color:#fff;
+	font-weight: 600;
+}
+
+#mobile-menu{
+    display: none;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: fixed;
+    z-index: 111;
+    top:0;
+    left:0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#mobile-menu a{
+	border: none;
+	border-radius: 0px;
+}
+/*------- Content ------*/
+/*------- Content title + shortcut------*/
+
+.content{
+	padding-left: 220px;
+}
+@media only screen and (max-width: 768px){
+    #mobile-menu {
+        display: block;
+    }
+    .content-title{
+    	text-align: right;
+    }
+    .sidebar{
+    	margin-left: -220px;
+    }
+    .content{
+		padding-left: 0px;
+	}
+	#wrapper.toggled .sidebar{
+		margin-left: 0px;
+	} 
+	#wrapper.toggled #mobile-menu{
+		padding-left:220px; 
+		margin-left: 0px;
+	}
+}
+
+

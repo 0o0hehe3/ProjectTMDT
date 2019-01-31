@@ -1,0 +1,50 @@
+li{font-style: none;}
+a,a:hover,a:focus,a:link{text-decoration: none;}
+
+body{
+	background:url("../images/bg-login.gif");
+	color: #fff;
+}
+header#login-header{
+	padding:80px 0px 30px;
+	border-bottom: 1px solid #4B4747;
+	position: relative;
+}
+header#login-header:before{
+	content: "";
+	background: #000000;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0.4;
+	top:0;
+}
+header#login-header .block h1{
+	text-align: center;
+	color:#fff;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+section#login-content{
+	padding-top:30px;
+}
+section#login-content .block #alert{
+	padding:10px;
+	border:none;
+	text-align: center;
+	background: #141414;
+}
+section#login-content .block #alert i{
+	padding-right:5px;
+}
+section#login-content .block #frm-login button#login{
+	padding:4px 15px;
+	font-size: 13px;
+	font-weight: 600;
+	color:#fff;
+	background: -webkit-linear-gradient(#107909,#1C4806,#297B01);
+	background: -moz-linear-gradient(#107909,#1C4806,#297B01);
+	background: linear-gradient(#107909,#1C4806,#297B01);
+    border: 1px solid #134C0F;
+}

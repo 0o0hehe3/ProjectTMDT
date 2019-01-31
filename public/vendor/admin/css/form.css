@@ -1,0 +1,8 @@
+*{margin:0;padding:0;}
+li{list-style: none;}
+a,a:hover,a:focus,a:link{text-decoration: none;}
+body{}
+
+.form-horizontal .form-group label.control-label{
+	text-align: left;
+}

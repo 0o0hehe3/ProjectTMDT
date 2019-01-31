@@ -1,0 +1,15 @@
+.content .content-title h1{
+	font-size: 30px;
+    font-weight: 600;
+}
+.content-main{
+	padding-top:20px;
+}
+.content-main .panel .panel-heading h3.panel-title{
+	font-size: 18px;
+    font-weight: 600;
+    color: #777777;
+}
+.pagination .active{
+	background: red;
+}
