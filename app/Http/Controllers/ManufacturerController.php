@@ -18,7 +18,7 @@ class ManufacturerController extends Controller
     	$rules = [
     		'name' => 'required|unique:manufacturers',
     		'address' => 'required',
-    		'phone_number' => 'required|min:10|max:11',
+    		'phone_number' => 'required|min:8|max:11',
     	];
 
     	$validator = Validator::make($input, $rules);
@@ -33,7 +33,7 @@ class ManufacturerController extends Controller
    				'description' => $input['description'],
     		]);
 
-    		return redirect()->route('admin.index');
+    		return redirect()->route('admin.product');
     	}
     }
 }

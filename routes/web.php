@@ -20,6 +20,10 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 		Route::get('/', 'AdminController@index')->name('admin.index');
 		Route::get('/manufacturer/add','ManufacturerController@add')->name('add.manufacturer');
 		Route::post('/manufacturer/doAdd','ManufacturerController@doAdd')->name('post.AddManu');
+		Route::get('/product','ProductController@index')->name('admin.product');
+		Route::get('/product/add','ProductController@add')->name('admin.product.add');
+		Route::get('/type_product/add', 'TypeProductController@add')->name('admin.typeProduct.add');
+		Route::post('/type_product/doAdd', 'TypeProductController@doAdd')->name('post.AddTypeProduct');
 	});
 });
 Route::get('/admin/login', 'AdminController@getLogin')->name('login');

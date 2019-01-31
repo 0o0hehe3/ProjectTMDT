@@ -12,11 +12,21 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+
                         <li>
                             <a href="{{ route('admin.index') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Products</a>
+                            <a href=""><i class="fa fa-table fa-fw"></i> Products</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.product') }}">List Product</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.product.add') }}">Add Product</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Posts<span class="fa arrow"></span></a>
@@ -30,10 +40,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
-                        <li>
-                            <a href="forms.html"> Bills</a>
-                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-user"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
