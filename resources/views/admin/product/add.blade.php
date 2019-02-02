@@ -45,7 +45,6 @@
 							<div class="form-group">
 								<label>Images 1</label>
 								<input type="file" id="img_1" name="image1">
-								<img src="" alt="My picture" id="img_src_1">
 							</div>
 							<div class="form-group">
 								<label>Images 2</label>
@@ -57,7 +56,7 @@
 							</div>
 							<div class="form-group">
 								<label>Description</label>
-								<textarea class="form-control" rows="10" name="description" placeholder="Enter Description"></textarea>
+								<textarea class="form-control ckeditor" rows="10" name="description" placeholder="Enter Description"></textarea>
 							</div>
 							<button type="submit" class="btn btn-default">Submit</button>
 							<button type="reset" class="btn btn-default">Reset</button>

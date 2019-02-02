@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 		Route::get('/product/{id}/add','ProductController@add')->name('admin.product.add');
 		Route::post('/product/{id}/add','ProductController@doAdd')->name('admin.product.doAdd');
 		Route::get('/product/{id}/edit', 'ProductController@edit')->name('admin.product.edit');
+		Route::post('product/{id}/update', 'ProductController@update')->name('admin.product.update');
 		Route::get('/type_product', 'TypeProductController@show')->name('admin.typeProduct');
 		Route::get('/type_product/add', 'TypeProductController@add')->name('admin.typeProduct.add');
 		Route::post('/type_product/doAdd', 'TypeProductController@doAdd')->name('post.AddTypeProduct');

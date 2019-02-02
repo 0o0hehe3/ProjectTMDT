@@ -17,13 +17,10 @@
                             <a href="{{ route('admin.index') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-table fa-fw"></i> Products</a>
+                            <a href=""><i class="fa fa-laptop fa-fw"></i> Products</a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ route('admin.product') }}">List Product</a>
-                                </li>
-                                <li>
-                                    <a href="">Add Product</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -432,3 +432,11 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
+
+#action_td{
+  width: 10%;
+}
+
+#show_product td img{
+  width: 70%;
+}

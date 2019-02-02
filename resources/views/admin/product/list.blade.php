@@ -8,10 +8,10 @@
     </div>
     <div class="panel panel-default">
     	<div class="panel-heading">
-    		<i class="fa fa-bar-chart-o fa-fw"></i> {{ $products->manufacturer->name }}
+    		<i class="fa fa-bar-chart-o fa-fw"></i> {{ $manufacturer->name }}
     		<div class="pull-right">
 
-    			<a href="{{ route('admin.product.add',['id'=>$products->manufacturer->id]) }}">
+    			<a href="{{ route('admin.product.add',['id'=>$manufacturer->id]) }}">
     				<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
     			</a>
     		</div>
@@ -26,18 +26,22 @@
     							<tr>
     								<th>Id</th>
     								<th>Name</th>
-    								<th>Product Type</th>
+    								<th>Type</th>
+    								<th>Amount</th>
+    								<th>Price</th>
+    								<th>Promotion Price (%)</th>
     								<th>Image 1</th>
     								<th>Image 2</th>
     								<th>Image 3</th>
-    								<th>Action</th>
+    								<th>Description</th>
+    								<th id="action_td">Action</th>
     							</tr>
     						</thead>
     						<tbody>
     						@include('admin.product.content')
     						</tbody>
     					</table>
-    					{{ $products->links() }}
+    					<button id="btn_loadmore" class="btn btn-primary pull-right" data-href="{{$products->nextPageUrl()}}">Load more</button>
     				</div>
     				<!-- /.table-responsive -->
     			</div>
@@ -52,4 +56,21 @@
     	<!-- /.panel-body -->
     </div>
     <!-- /.panel -->
+@stop
+@section('js')
+<script>
+	$('#btn_loadmore').on('click',function(){
+		var url = $(this).data('href');
+		$.ajax({
+			url: url,
+			type: "GET",
+			success: function(data){
+
+			},
+			error: function(data){
+				alert('Xin chào, có lỗi rồi');
+			}
+		});
+	});
+</script>
 @stop

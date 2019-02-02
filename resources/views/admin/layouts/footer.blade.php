@@ -20,7 +20,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/vendor/dist/js/sb-admin-2.js"></script>
-
+    <script type="text/javascript">  
+     CKEDITOR.replace( 'ckeditor' );  
+    </script>  
+    @yield('js')
 </body>
 
 </html>
