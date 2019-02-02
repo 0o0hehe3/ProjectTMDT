@@ -20,11 +20,19 @@ class ManufacturerController extends Controller
     		'address' => 'required',
     		'phone_number' => 'required|min:8|max:11',
     	];
+        $messages = [
+            'name.required' => 'Name Field Is Required',
+            'name.unique' => 'Name Has Already Been Taken',
+            'address.required' => 'Address Field Is Required',
+            'phone_number.required' => 'Phone Number Field Is Required',
+            'phone_number.min' => 'Min Length For Phone Number Is 8',
+            'phone_number.max' => 'Max Length For Phone Number Is 11'
+        ];
 
-    	$validator = Validator::make($input, $rules);
+    	$validator = Validator::make($input, $rules, $messages);
 
     	if($validator->fails()){
-    		return redirect()->route('add.manufacturer')->withInputs($validator);
+    		return redirect()->route('add.manufacturer')->withErrors($validator);
     	} else {
     		Manufacturer::create([
     			'name' => $input['name'],

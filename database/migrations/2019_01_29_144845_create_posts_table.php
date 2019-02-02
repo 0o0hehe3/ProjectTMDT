@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('content');            
             $table->string('url_image');
-            $table->integer('view_count');
-            $table->integer('like_count');
+            $table->integer('view_count')->default(0);
+            $table->integer('like_count')->default(0);
             $table->timestamps();
         });
     }

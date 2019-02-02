@@ -9,19 +9,22 @@ use Validator;
 
 class TypeProductController extends Controller
 {
+	public function show()
+	{
+		$type_products = ProductType::all();
+
+		return view('admin.typeProduct.show', compact('type_products'));
+	}
     public function add()
     {
-    	$manufacterers = Manufacturer::all();
-
-    	return view('admin.typeProduct.add', compact('manufacterers'));
+    	return view('admin.typeProduct.add');
     }
 
     public function doAdd(Request $request)
     {
     	$input = $request->all();
     	$rules = [
-    		'name' => 'required|unique',
-    		'manufacterer' => 'required'
+    		'name' => 'required|unique:type_products'
     	];
 
     	$validator = Validator::make($input, $rules);
@@ -31,11 +34,10 @@ class TypeProductController extends Controller
     	} else {
     		ProductType::create([
     			'name' => $input['name'],
-    			'manufacterer_id' => $input['manufacterer'],
     			'description' => $input['description']
     		]);
 
-    		return redirect()->route('admin.product');
+    		return redirect()->route('admin.typeProduct');
     	}
     }
 }

@@ -21,9 +21,15 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 		Route::get('/manufacturer/add','ManufacturerController@add')->name('add.manufacturer');
 		Route::post('/manufacturer/doAdd','ManufacturerController@doAdd')->name('post.AddManu');
 		Route::get('/product','ProductController@index')->name('admin.product');
-		Route::get('/product/add','ProductController@add')->name('admin.product.add');
+		Route::get('/product/{id}/list_product', 'ProductController@list')->name('admin.product.list');
+		Route::get('/product/{id}/add','ProductController@add')->name('admin.product.add');
+		Route::post('/product/{id}/add','ProductController@doAdd')->name('admin.product.doAdd');
+		Route::get('/product/{id}/edit', 'ProductController@edit')->name('admin.product.edit');
+		Route::get('/type_product', 'TypeProductController@show')->name('admin.typeProduct');
 		Route::get('/type_product/add', 'TypeProductController@add')->name('admin.typeProduct.add');
 		Route::post('/type_product/doAdd', 'TypeProductController@doAdd')->name('post.AddTypeProduct');
+		Route::get('/post/add', 'PostController@add')->name('add.post');
+		Route::get('/test/img', 'ProductController@test')->name('test.img');
 	});
 });
 Route::get('/admin/login', 'AdminController@getLogin')->name('login');

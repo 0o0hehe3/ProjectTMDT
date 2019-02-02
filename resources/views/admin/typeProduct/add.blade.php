@@ -22,15 +22,6 @@
 									<input class="form-control" type="text" name="name" placeholder="Enter Name">
 								</div>
 								<div class="form-group">
-									<label for="sel">Manufacturer</label>
-									<select class="form-control" name="manufacterer" id="sel">
-										<option value="">--- Select list ---</option>
-									@foreach($manufacterers as $manufacterer)
-										<option value="{{ $manufacterer->id }}">{{ $manufacterer->name }}</option>
-									@endforeach
-									</select>
-								</div>
-								<div class="form-group">
 									<label>Description</label>
 									<textarea class="form-control" rows="10" name="description" placeholder="Enter Description"></textarea>
 								</div>
