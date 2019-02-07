@@ -25,29 +25,6 @@
 				            <li>
 				            	<a href="#">
 				            		<span class="glyphicon glyphicon-triangle-right left-font-product"></span>
-				            		Guitar Acoustic
-				            	</a>
-				            </li>
-				            <li>
-				            	<a href="#">
-				            		<span class="glyphicon glyphicon-triangle-right left-font-product"></span>Guitar Classic
-				            	</a>
-				            </li>
-				            <li>
-				            	<a href="#">
-				            		<span class="glyphicon glyphicon-triangle-right left-font-product"></span>
-				            		Guitar Electric
-				            	</a>
-				            </li>
-				            <li>
-				            	<a href="#">
-				            		<span class="glyphicon glyphicon-triangle-right left-font-product"></span>
-				            		Guitar Electric
-				            	</a>
-				            </li>
-				            <li>
-				            	<a href="#">
-				            		<span class="glyphicon glyphicon-triangle-right left-font-product"></span>
 				            		Sản Phẩm Khuyến Mại
 				            	</a>
 				            </li>
