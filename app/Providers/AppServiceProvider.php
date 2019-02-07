@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\ProductType;
+use App\Manufacturer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.left_menu',function($view){
+            $types = ProductType::all();
+            $manufacturers = Manufacturer::all();
+             
+            $view->with('types',$types);
+            $view->with('manufacturers',$manufacturers);
+        });
     }
 
     /**

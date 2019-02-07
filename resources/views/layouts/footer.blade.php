@@ -19,23 +19,23 @@
 				<div class="col-xs-12 col-ms-6 col-md-4 pad-img">
 					<h3>Liên Hệ</h3>					
 					<div class="col-xs-6 col-md-3">
-						<a href=""><img src="vendor/images/f.jpg"></a>
+						<a href=""><img src="/vendor/images/f.jpg"></a>
 					</div>
 					<div class="col-xs-6 col-md-3">
-						<a href=""><img src="vendor/images/i.jpg"></a>
+						<a href=""><img src="/vendor/images/i.jpg"></a>
 					</div>
 					<div class="col-xs-6 col-md-3">
-						<a href=""><img src="vendor/images/z.jpg"></a>
+						<a href=""><img src="/vendor/images/z.jpg"></a>
 					</div>
 					<div class="col-xs-6 col-md-3">
-						<a href=""><img src="vendor/images/r.jpg"></a>
+						<a href=""><img src="/vendor/images/r.jpg"></a>
 					</div>					
 				</div>
 			</div>
 		</div>
 		<div>
 			<a href="javascript:void(0)" id="scrolltop">
-				<img src="vendor/images/arrow.png" alt="" />
+				<img src="/vendor/images/arrow.png" alt="" />
 			</a>
 		</div>	
 	</footer>

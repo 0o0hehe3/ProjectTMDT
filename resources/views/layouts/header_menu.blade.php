@@ -10,7 +10,7 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			      </button>
-			      <a class="navbar-brand bglogo" href="#">S-PLW</a>
+			      <a class="navbar-brand bglogo" href="{{ route('index') }}">Laptop</a>
 			    </div>
 
 			    <!-- Collect the nav links, forms, and other content for toggling -->

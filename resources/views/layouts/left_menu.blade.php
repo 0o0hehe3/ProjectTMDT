@@ -15,7 +15,7 @@
 					  @foreach($manufacturers as $manufacturer)
 					  <li role="presentation">
 					  	<span class="glyphicon glyphicon-triangle-right left-font"></span>
-					  	<a href="{{ $manufacturer->id }}">{{ $manufacturer->name }}</a>
+					  	<a href="{{ route('index') }}">{{ $manufacturer->name }}</a>
 					  </li>
 					  @endforeach
 					</ul>

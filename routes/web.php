@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('public');
+Route::get('/', 'HomeController@index')->name('index');
 
 Route::group(['middleware' => ['auth', 'web','admin']], function(){
 	Route::group(['prefix' => 'admin'], function(){
@@ -49,3 +49,5 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 Route::get('/admin/login', 'AdminController@getLogin')->name('login');
 Route::post('/admin/doLogin', 'AdminController@postLogin')->name('Admin.doLogin');
 Route::get('/admin/logout', 'AdminController@logout')->name('Admin.Logout');
+Route::get('/product/detail/{id}', 'HomeController@product_detail')->name('product.detail');
+Route::get('/listCart', );

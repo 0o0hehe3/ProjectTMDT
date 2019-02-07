@@ -12,9 +12,14 @@ class HomeController extends Controller
     public function index()
     {
     	$products = Product::paginate(9);
-    	$types = ProductType::all();
-    	$manufacturers = Manufacturer::all();
 
-        return view('index', compact('products','types','manufacturers'));
+        return view('index', compact('products'));
+    }
+
+    public function product_detail($id)
+    {
+    	$product = Product::find($id);
+    	
+    	return view('product.detail',compact('product'));
     }
 }

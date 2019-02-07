@@ -18,7 +18,10 @@
 					</div>
 					<div class="promotion_price">Giảm: <span>{{ $product->promotion }}%</span> </div>
 					<div class="price">Chỉ Còn: {{ $product->promotion_price }} VNĐ</div>
-					<p class="btn-costs"><a href="#" class="btn btn-default" role="button">Chi Tiết</a> <a href="#" class="btn btn-success" role="button">Mua Ngay</a></p>
+					<p class="btn-costs">
+						<a href="{{ route('product.detail',['id'=>$product->id]) }}" class="btn btn-default" role="button">Chi Tiết</a> 
+						<a href="#" class="btn btn-success" role="button">Mua Ngay</a>
+					</p>
 				</div>
 			</div>
 		</div>
