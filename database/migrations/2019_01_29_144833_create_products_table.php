@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('manufacturer_id');
             $table->integer('amount');
             $table->integer('price');
-            $table->float('promotion_price');
+            $table->float('promotion');
             $table->string('url_image_1');
             $table->string('url_image_2')->nullable();
             $table->string('url_image_3')->nullable();

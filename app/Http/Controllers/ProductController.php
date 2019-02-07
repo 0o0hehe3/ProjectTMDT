@@ -18,12 +18,20 @@ class ProductController extends Controller
     	return view('admin.product.show', compact('manufacturers'));
     }
 
-    public function list($id)
+    public function list(Request $request, $id)
     {
     	$manufacturer = Manufacturer::find($id)->load('product');
-    	// dd($manufacturer);
-    	$products = $manufacturer->product()->orderBy('created_at','DESC')->paginate(1);
-    	
+    
+    	$products = $manufacturer->product()->orderBy('updated_at','DESC')->paginate(5);
+
+    	if($request->ajax()){
+    		$view = view('admin.product.content',compact('products'))->render();
+    		return response()->json([
+    			'html' => $view,
+    			'hasMore' => $products->hasMorePages(),
+    			'url' => $products->nextPageUrl()
+    		]);
+    	}
     	return view('admin.product.list', compact('manufacturer','products'));
     }
 
@@ -79,19 +87,19 @@ class ProductController extends Controller
         	$image = $request->file('image1');
         	$image_name_1 = time().'-'.$image->getClientOriginalName();
         	$store_path_1 = '/vendor/admin/images/product/image_1/';
-        	$destinitionPath = public_path($store_path);
+        	$destinitionPath = public_path($store_path_1);
         	$image->move($destinitionPath,$image_name_1);
 
     		$image = $request->file('image2');
     		$image_name_2 = time().'-'.$image->getClientOriginalName();
     		$store_path_2 = '/vendor/admin/images/product/image_2/';
-    		$destinitionPath = public_path($store_path);
+    		$destinitionPath = public_path($store_path_2);
     		$image->move($destinitionPath,$image_name_2);
 
         	$image = $request->file('image3');
         	$image_name_3 = time().'-'.$image->getClientOriginalName();
         	$store_path_3 = '/vendor/admin/images/product/image_3/';
-        	$destinitionPath = public_path($store_path);
+        	$destinitionPath = public_path($store_path_3);
         	$image->move($destinitionPath,$image_name_3);
 
         	Product::create([
@@ -160,13 +168,13 @@ class ProductController extends Controller
         if($validator->fails()){
         	return view('admin.product.edit', compact('product','types'))->withErrors($validator);
         } else {
-
         	$product->update([
         		'name' => $input['name'],
         		'type_id' => $input['type_product'],
         		'amount' => $input['amount'],
         		'price' => $input['price'],
-        		'promotion_price' => $input['promotion_price'],
+        		'promotion' => $input['promotion'],
+                'promotion_price' => $input['promotion_price'],
         		'description' => $input['description']
         	]);
         	

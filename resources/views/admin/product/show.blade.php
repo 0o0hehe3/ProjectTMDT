@@ -1,13 +1,4 @@
 @extends('admin.layouts.index')
-@section('js')
-	<script>
-		$(document).ready(function(){
-			$('.manufacturer_name').on('click',function(){
-				$('#title').html('hello');
-			});
-		});
-	</script>
-@stop
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
@@ -25,13 +16,8 @@
     					<span class="caret"></span>
     				</button>
     				<ul class="dropdown-menu pull-right" role="menu">
-    					<!-- <li>
-    						<a data-href="" type="button" class="manufacturer_name"></a>
-    					</li>     -->					
-    					
-    					<!-- <li class="divider"></li> -->
     					<li>
-                            <a href="{{ route('add.manufacturer') }}">Add manufacturer</a>
+                            <a href="{{ route('admin.manufacturer.add') }}">Add manufacturer</a>
     					</li>
     				</ul>
     			</div>
@@ -47,7 +33,9 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa-2x">{{ $manufacturer->name }}</i>
+                                        <!-- <a href="{{ route('admin.manufacturer.about',['id' => $manufacturer->id]) }}"> -->
+                                            <i class="fa-2x">{{ $manufacturer->name }}</i>
+                                        <!-- </a> -->
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"></div>

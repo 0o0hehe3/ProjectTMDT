@@ -12,16 +12,12 @@
     		<div class="pull-right">
     			<div class="btn-group">
     				<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-    					Manufacturer Name
+    					Action
     					<span class="caret"></span>
     				</button>
     				<ul class="dropdown-menu pull-right" role="menu">
     					<li>
-    						<a data-href="" type="button" class="manufacturer_name">Action</a>
-    					</li>
-    					<li class="divider"></li>
-    					<li>
-                            <a href="{{ route('add.manufacturer') }}">Add manufacturer</a>
+                            <a href="{{ route('admin.typeProduct.add') }}">Add Type Product</a>
     					</li>
     				</ul>
     			</div>

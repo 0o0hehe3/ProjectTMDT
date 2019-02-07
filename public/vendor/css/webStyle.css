@@ -140,7 +140,17 @@
 }
 .costs{
 	text-align: center;
-	color: #FF0000;
+	color: black;
+	text-decoration-line: line-through;
+}
+.promotion_price{
+	color: red;
+	text-align: center;
+}
+.price{
+	text-align: center;
+	font-size: 15px;
+	margin: 5px 0;
 }
 .btn-costs{
 	text-align: center;	

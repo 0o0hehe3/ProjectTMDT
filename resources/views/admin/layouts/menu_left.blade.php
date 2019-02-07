@@ -25,15 +25,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
                         <li>
                             <a href=""><i class="fa fa-table fa-fw"></i> Type Products</a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ route('admin.typeProduct') }}">List Type-Product</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('admin.typeProduct.add') }}">Add Type-Product</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -42,10 +38,7 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Posts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">List Posts</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('add.post') }}">Add New Post</a>
+                                    <a href="">List Posts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

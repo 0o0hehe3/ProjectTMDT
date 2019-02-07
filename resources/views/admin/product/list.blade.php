@@ -25,15 +25,14 @@
     						<thead>
     							<tr>
     								<th>Id</th>
-    								<th>Name</th>
-    								<th>Type</th>
-    								<th>Amount</th>
-    								<th>Price</th>
-    								<th>Promotion Price (%)</th>
-    								<th>Image 1</th>
-    								<th>Image 2</th>
-    								<th>Image 3</th>
-    								<th>Description</th>
+    								<th class="width_td">Name</th>
+    								<th class="width_td">Type</th>
+    								<th class="width_td">Amount</th>
+    								<th class="width_td">Price</th>
+    								<th >Promotion(%)</th>
+                                    <th>P. Price</th>
+    								<th class="width_td">Image 1</th>
+    								<th id="description">Description</th>
     								<th id="action_td">Action</th>
     							</tr>
     						</thead>
@@ -41,7 +40,10 @@
     						@include('admin.product.content')
     						</tbody>
     					</table>
-    					<button id="btn_loadmore" class="btn btn-primary pull-right" data-href="{{$products->nextPageUrl()}}">Load more</button>
+    					<div id="load_more_div">
+    						{{ $products->links() }}
+    						<button onclick="load_more()" id="btn_loadmore" class="btn btn-primary pull-right" data-href="{{$products->nextPageUrl()}}">Load more</button>
+    					</div>
     				</div>
     				<!-- /.table-responsive -->
     			</div>
@@ -59,18 +61,36 @@
 @stop
 @section('js')
 <script>
-	$('#btn_loadmore').on('click',function(){
-		var url = $(this).data('href');
-		$.ajax({
-			url: url,
-			type: "GET",
-			success: function(data){
-
-			},
-			error: function(data){
-				alert('Xin chào, có lỗi rồi');
-			}
-		});
+	$(document).ready(function(){
+		var btn = $('#btn_loadmore').data('href');
+		if(btn == ''){
+			$('#load_more_div').html('');
+		}
 	});
+	function load_more(){
+		var url = $('#btn_loadmore').data('href');
+		if(url == ''){
+			$('#load_more_div').html('');
+		} else{
+			$.ajax({
+				url: url,
+				type: "GET",
+				success: function(data){
+					$('tbody').append(data.html);
+					console.log(data.hasMore);
+					if(data.hasMore){
+						var data = '<button onclick="load_more()" id="btn_loadmore" class="btn btn-primary pull-right" data-href="'+ data.url +'">Load more</button>';
+						$('#load_more_div').html(data);
+					}
+					else{
+						$('#load_more_div').html('');
+					}
+				},
+				error: function(data){
+					alert('Xin chào, có lỗi rồi');
+				}				
+			});
+		}		
+	}	
 </script>
 @stop

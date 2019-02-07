@@ -44,4 +44,9 @@ class ManufacturerController extends Controller
     		return redirect()->route('admin.product');
     	}
     }
+
+    public function about($id)
+    {
+        return view('admin.manufacturer.about');
+    }
 }

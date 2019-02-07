@@ -15,7 +15,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-6">
-							<form role="form" action="{{ route('post.AddManu') }}" method="POST">
+							<form role="form" action="{{ route('admin.manufacturer.doAdd') }}" method="POST">
 								@csrf
 								<div class="form-group">
 									<label>Name</label>

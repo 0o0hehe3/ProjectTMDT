@@ -5,10 +5,9 @@
 	<td>{{ $product->product_type->name }}</td>
 	<td>{{ $product->amount }}</td>
 	<td>{{ $product->price }}</td>
+	<td>{{ $product->promotion }}</td>
 	<td>{{ $product->promotion_price }}</td>
 	<td><a href="{{ $product->url_image_1 }}"><img src="{{ $product->url_image_1 }}" alt=""></a></td>
-	<td><a href="{{ $product->url_image_2 }}"><img src="{{ $product->url_image_2 }}" alt=""></a></td>
-	<td><a href="{{ $product->url_image_3 }}"><img src="{{ $product->url_image_3 }}" alt=""></a></td>
 	<td id="config">{!! $product->description !!}</td>
 	<td id="action_id">
 		<a href="{{ route('admin.product.edit', [ 'id'=>$product->id ]) }}">

@@ -438,5 +438,11 @@ table.dataTable thead .sorting:after {
 }
 
 #show_product td img{
-  width: 70%;
+  width: 100%;
+}
+.width_td{
+  width: 10%;
+}
+#description{
+  width: 30%;
 }
