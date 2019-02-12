@@ -18,13 +18,14 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('type_id');
             $table->integer('manufacturer_id');
-            $table->integer('amount');
-            $table->integer('price');
-            $table->float('promotion');
-            $table->string('url_image_1');
-            $table->string('url_image_2')->nullable();
-            $table->string('url_image_3')->nullable();
+            $table->string('url_image');
+            $table->integer('amount')->default(0);
+            $table->integer('price')->default(0);
+            $table->float('promotion')->default(0);
+            $table->integer('promotion_price')->default(0);
             $table->string('description');
+            $table->integer('likes_count')->default(0);
+            $table->integer('views_count')->default(0);
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAttrPromotionTable extends Migration
+class CreateCommentProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddAttrPromotionTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->float('promotion');
+        Schema::create('comments_product', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('product_id');
+            $table->text('content');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +29,6 @@ class AddAttrPromotionTable extends Migration
      */
     public function down()
     {
-         $table->dropColumn('promotion');
+        Schema::dropIfExists('comments_product');
     }
 }

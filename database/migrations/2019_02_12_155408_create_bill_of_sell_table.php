@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBillDetailTable extends Migration
+class CreateBillOfSellTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateBillDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('bill_detail', function (Blueprint $table) {
+        Schema::create('billsofsell', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('bill_id');
-            $table->integer('product_id');
-            $table->integer('amount');
-            $table->double('price');
-            $table->double('total');
+            $table->integer('user_id');
+            $table->integer('total');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateBillDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bill_detail');
+        Schema::dropIfExists('billsofsell');
     }
 }
