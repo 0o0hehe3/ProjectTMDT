@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 
+//Group Route Admin
 Route::group(['middleware' => ['auth', 'web','admin']], function(){
 	Route::group(['prefix' => 'admin'], function(){
 		Route::get('/', 'AdminController@index')->name('admin.index');
@@ -45,9 +46,23 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 		//End Route Post
 	});
 });
+//End Group Route Admin
 
+// Route Authencation
 Route::get('/admin/login', 'AdminController@getLogin')->name('login');
 Route::post('/admin/doLogin', 'AdminController@postLogin')->name('Admin.doLogin');
 Route::get('/admin/logout', 'AdminController@logout')->name('Admin.Logout');
+//End Route Authencation
+
+//Route Menu
+Route::get('/type_product/{id}', 'HomeController@menu_typeProduct')->name('menu.typeProduct');
+
+//End Route Menu
+
+//Route Product
 Route::get('/product/detail/{id}', 'HomeController@product_detail')->name('product.detail');
-Route::get('/listCart', );
+//End Route Product
+
+//Route ListCart
+Route::get('/listCart/{id}', 'ListCartController@add')->name('listCart.add');
+//End ListCart

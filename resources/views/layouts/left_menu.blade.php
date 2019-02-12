@@ -6,7 +6,7 @@
 					  @foreach($types as $type)
 					  <li role="presentation">					  	
 					  	<span class="glyphicon glyphicon-triangle-right left-font"></span>
-					  	<a href="{{ $type->id }}">Laptop {{ $type->name }}</a>
+					  	<a href="{{ route('menu.typeProduct',['id' => $type->id ]) }}">Laptop {{ $type->name }}</a>
 					  </li>
 					  @endforeach
 					</ul>

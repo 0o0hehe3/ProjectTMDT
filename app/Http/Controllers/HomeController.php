@@ -19,7 +19,15 @@ class HomeController extends Controller
     public function product_detail($id)
     {
     	$product = Product::find($id);
-    	
+
     	return view('product.detail',compact('product'));
+    }
+
+    public function menu_typeProduct($id)
+    {
+    	$products = ProductType::find($id)->product()->get();
+    	$type = ProductType::find($id);
+
+    	return view('menu.typeProduct',compact('products','type'));
     }
 }

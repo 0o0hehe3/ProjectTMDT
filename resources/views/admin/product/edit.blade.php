@@ -72,6 +72,11 @@
 							<div class="form-group">
 								<label>Promotion (%)</label>
 								<input type="text" name="promotion" id="promotion" value="{{ $product->promotion }}" class="form-control">
+								@if($errors->has('promotion'))
+								<span style="color:red">
+									{{ $errors->first('promotion')}} 
+								</span>
+								@endif
 							</div>
 							<div class="form-group">
 								<label>Promotion Price</label>

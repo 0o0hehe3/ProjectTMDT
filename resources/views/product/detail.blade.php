@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
 <div class="col-md-9 col-xs-12">
-	<h3><a href="index.php?view=ChitietSanPham">Tên Theo Từng Loại Sản Phẩm</a></h3>
+	<h3><a href="index.php?view=ChitietSanPham">Chi tiết sản phẩm {{ $product->manufacturer->name }} {{ $product->name }}</a></h3>
 	<div class="row">
 		<div class="col-sm-6 col-md-6">
 			<div>
@@ -19,7 +19,7 @@
 					Hết hàng
 					@endif
 				</p>
-				<p>Nhà sản xuất: <a href="#">Yamaha</a></p>
+				<p>Nhà sản xuất: <a href="#">{{ $product->manufacturer->name }}</a></p>
 				<a href="" class="btn btn-default"><span class='glyphicon glyphicon-shopping-cart'></span>Thêm vào giỏ hàng</a><br /><br />
 				<!-- <span class="glyphicon glyphicon-print"></span>  <a href="#">In báo cáo</a> -->
 			</div>
@@ -30,8 +30,11 @@
 		</div>
 	</div>
 </div>
+@stop
+@section('js')
 <script type="text/javascript">
   $(document).ready(function(){
    $("#zoom_01").elevateZoom();
   });
-</script>@stop
+</script>
+@stop
