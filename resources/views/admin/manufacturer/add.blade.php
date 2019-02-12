@@ -19,7 +19,7 @@
 								@csrf
 								<div class="form-group">
 									<label>Name</label>
-									<input class="form-control" type="text" name="name" placeholder="Enter Name">
+									<input class="form-control" type="text" value="{{ old('name') }}" name="name" placeholder="Enter Name">
 								@if($errors->has('name'))
 									<span style="color:red">
 										{{ $errors->first('name') }}
@@ -28,7 +28,7 @@
 								</div>
 								<div class="form-group">
 									<label>Address</label>
-									<input class="form-control" type="text" name="address" placeholder="Enter Address">
+									<input class="form-control" type="text" name="address" value="{{ old('address') }}" placeholder="Enter Address">
 								@if($errors->has('address'))
 									<span style="color:red">
 										{{ $errors->first('address') }}
@@ -37,7 +37,7 @@
 								</div>
 								<div class="form-group">
 									<label>Phone number</label>
-									<input class="form-control" type="text" name="phone_number" placeholder="Enter Phone number">
+									<input class="form-control" type="text" name="phone_number" value="{{ old('phone_number') }}"  placeholder="Enter Phone number">
 								@if($errors->has('phone_number'))
 									<span style="color:red">
 										{{ $errors->first('phone_number') }}
@@ -46,7 +46,7 @@
 								</div>
 								<div class="form-group">
 									<label>Description</label>
-									<textarea class="form-control" rows="10" name="description" placeholder="Enter Description"></textarea>
+									<textarea class="form-control" rows="10" name="description" placeholder="Enter Description">{{ old('description') }}</textarea>
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 								<button type="reset" class="btn btn-default">Reset</button>

@@ -41,6 +41,7 @@
       <input type="checkbox" name="remember" id="remember"/>
       <label class="radio" for="remember">Stay Logged In</label>
       <input type="submit" value="Login"/>
+      <a href="{{ route('admin.register') }}"><input type="button" value="Register"></a>
     </form>
   </div>
 

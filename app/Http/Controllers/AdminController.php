@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -55,5 +57,28 @@ class AdminController extends Controller
 	{
 		Auth::logout();
 		return redirect('/admin/login');
+	}
+
+	public function register()
+	{
+		return view('admin.auth.register');
+	}
+
+	public function doRegister(Request $request)
+	{
+		$input = $request->all();
+
+		User::create([
+			'name' => $input['name'],
+			'email' => $input['email'],
+			'password' =>  Hash::make($input['password']),
+			'avatar' => '123456',
+			'birth_day' => $input['birth_day'],
+			'address' => $input['address'],
+			'phone_number' => $input['phone_number'],
+			'level' => 1,
+			'gender' => 1
+		]);
+		return redirect()->route('login');
 	}
 }

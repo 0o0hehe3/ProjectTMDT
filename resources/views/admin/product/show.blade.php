@@ -33,13 +33,10 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <!-- <a href="{{ route('admin.manufacturer.about',['id' => $manufacturer->id]) }}"> -->
                                             <i class="fa-2x">{{ $manufacturer->name }}</i>
-                                        <!-- </a> -->
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"></div>
-
                                     </div>
                                 </div>
                             </div>

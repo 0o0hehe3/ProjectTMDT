@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Manufacturer;
+
 class ManufacturerController extends Controller
 {
     public function add()
@@ -32,7 +33,8 @@ class ManufacturerController extends Controller
     	$validator = Validator::make($input, $rules, $messages);
 
     	if($validator->fails()){
-    		return redirect()->route('add.manufacturer')->withErrors($validator);
+            $request->flash();
+    		return redirect()->route('admin.manufacturer.add')->withErrors($validator);
     	} else {
     		Manufacturer::create([
     			'name' => $input['name'],
@@ -41,12 +43,14 @@ class ManufacturerController extends Controller
    				'description' => $input['description'],
     		]);
 
-    		return redirect()->route('admin.product');
+    		return redirect()->route('admin.manufacturer');
     	}
     }
 
-    public function about($id)
+    public function list()
     {
-        return view('admin.manufacturer.about');
+        $manufacturers = Manufacturer::all();
+
+        return view('admin.manufacturer.list',compact('manufacturers'));
     }
 }

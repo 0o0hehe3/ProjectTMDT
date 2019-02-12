@@ -90,18 +90,6 @@ class ProductController extends Controller
         	$destinitionPath = public_path($store_path_1);
         	$image->move($destinitionPath,$image_name_1);
 
-    		$image = $request->file('image2');
-    		$image_name_2 = time().'-'.$image->getClientOriginalName();
-    		$store_path_2 = '/vendor/admin/images/product/image_2/';
-    		$destinitionPath = public_path($store_path_2);
-    		$image->move($destinitionPath,$image_name_2);
-
-        	$image = $request->file('image3');
-        	$image_name_3 = time().'-'.$image->getClientOriginalName();
-        	$store_path_3 = '/vendor/admin/images/product/image_3/';
-        	$destinitionPath = public_path($store_path_3);
-        	$image->move($destinitionPath,$image_name_3);
-
         	Product::create([
         		'name' => $input['name'],
         		'type_id' => $input['type_product'],
@@ -110,9 +98,7 @@ class ProductController extends Controller
         		'price' => $input['price'],
         		'promotion' => $input['promotion'],
                 'promotion_price' => $input['promotion_price'],
-        		'url_image_1' => $store_path_1.$image_name_1,
-        		'url_image_2' => $store_path_2.$image_name_2,
-        		'url_image_3' => $store_path_3.$image_name_3,
+        		'url_image' => $store_path_1.$image_name_1,
         		'description' => $input['description']
         	]);
 

@@ -17,23 +17,14 @@
                             <a href="{{ route('admin.index') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-laptop fa-fw"></i> Products</a>
+                            <a href=""><i class="fa fa-laptop fa-fw"></i> Products<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ route('admin.product') }}">List Product</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href=""><i class="fa fa-table fa-fw"></i> Type Products</a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ route('admin.typeProduct') }}">List Type-Product</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        </li>                        
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Posts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -43,27 +34,27 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
                         <li>
                             <a href="#"><i class="fa fa-user"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user"></i> Manufacturer<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                               <li>
+                                   <a href="{{ route('admin.manufacturer') }}">List</a>
                                 </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-table fa-fw"></i> Store</a>
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
+                                    <a href="{{ route('admin.typeProduct') }}">DS TLSP</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

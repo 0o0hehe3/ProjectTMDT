@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('level');
             $table->string('avatar')->nullable();
-            $table->dateTime('birth_day');
+            $table->date('birth_day');
             $table->integer('gender');
             $table->string('address');
             $table->string('phone_number');

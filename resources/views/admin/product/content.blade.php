@@ -13,7 +13,8 @@
 		<a href="{{ route('admin.product.edit', [ 'id'=>$product->id ]) }}">
 			<span><i class="fa fa-edit fa-2x"></i></span>
 		</a>
-		|
+	</td>
+	<td>
 		<a href="">
 			<span><i class="fa fa-trash fa-2x"></i></span>
 		</a>

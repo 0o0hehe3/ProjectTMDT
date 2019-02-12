@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\ProductType;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,18 +27,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-        	'name' => 'Admin',
-        	'email' => 'duongtunglam191@gmail.com',
-        	'password' => Hash::make(123456),
-        	'level' => 1
+        ProductType::create([
+        	'name' => 'Máy tính'
         ]);
-
-        User::create([
-            'name' => 'User',
-            'email' => 'duongtunglam192@gmail.com',
-            'password' => Hash::make(123456),
-            'level' => 0
+        ProductType::create([
+            'name' => 'Điện thoại'
         ]);
     }
 }

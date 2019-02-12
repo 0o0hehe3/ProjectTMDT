@@ -19,7 +19,7 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 		Route::get('/', 'AdminController@index')->name('admin.index');
 		
 		//Route Manufacturers
-		Route::get('/manufacturer/{id}/about', 'ManufacturerController@about')->name('admin.manufacturer.about');
+		Route::get('/manufacturer/', 'ManufacturerController@list')->name('admin.manufacturer');
 		Route::get('/manufacturer/add','ManufacturerController@add')->name('admin.manufacturer.add');
 		Route::post('/manufacturer/doAdd','ManufacturerController@doAdd')->name('admin.manufacturer.doAdd');
 		//End Route Manufacturer
@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 Route::get('/admin/login', 'AdminController@getLogin')->name('login');
 Route::post('/admin/doLogin', 'AdminController@postLogin')->name('Admin.doLogin');
 Route::get('/admin/logout', 'AdminController@logout')->name('Admin.Logout');
+Route::get('/admin/register', 'AdminController@register')->name('admin.register');
+Route::post('/admin/doRegister', 'AdminController@doRegister')->name('admin.doRegister');
 //End Route Authencation
 
 //Route Menu

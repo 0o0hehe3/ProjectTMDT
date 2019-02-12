@@ -10,7 +10,6 @@
     	<div class="panel-heading">
     		<i class="fa fa-bar-chart-o fa-fw"></i> {{ $manufacturer->name }}
     		<div class="pull-right">
-
     			<a href="{{ route('admin.product.add',['id'=>$manufacturer->id]) }}">
     				<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
     			</a>
@@ -29,11 +28,10 @@
     								<th class="width_td">Type</th>
     								<th class="width_td">Amount</th>
     								<th class="width_td">Price</th>
-    								<th >Promotion(%)</th>
                                     <th>P. Price</th>
-    								<th class="width_td">Image 1</th>
+    								<th class="width_td">Image</th>
     								<th id="description">Description</th>
-    								<th id="action_td">Action</th>
+    								<th colspan="2" style="text-align: center;">Action</th>
     							</tr>
     						</thead>
     						<tbody>
