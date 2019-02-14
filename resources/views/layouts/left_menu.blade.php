@@ -6,7 +6,7 @@
 					  @foreach($types as $type)
 					  <li role="presentation">					  	
 					  	<span class="glyphicon glyphicon-triangle-right left-font"></span>
-					  	<a href="{{ route('menu.typeProduct',['id' => $type->id ]) }}">Laptop {{ $type->name }}</a>
+					  	<a href="{{ route('menu.typeProduct',['id' => $type->id ]) }}">{{ $type->name }}</a>
 					  </li>
 					  @endforeach
 					</ul>
@@ -33,15 +33,15 @@
 						  <li>Mr: Năng - <strong>0978.701.116</strong><br/>Mr: Năng - <strong>0978.701.116</strong></li>
 					  </div>
 					</ul>	
-					<ul class="nav nav-pills nav-stacked">
+					<!-- <ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a href="#" class="first">Thống Kê Truy Cập</a></li>
 					  <li role="presentation">
 					  	<span class="glyphicon glyphicon-triangle-right left-font"></span>
 					  	<a href="#">Đang online</a>
-					  </li>
+					  </li> -->
 					  <!-- <li role="presentation">
 					  	<span class="glyphicon glyphicon-triangle-right left-font"></span>
 					  	<a href="#">Làm Việc Với File</a>
 					  </li> -->
-					</ul>
+					<!-- </ul> -->
 				</div> <!-- /.col-xs-12.col-md-3 -->

@@ -20,15 +20,16 @@
     		<div class="row">
     			<div class="col-lg-12">
     				<div class="table-responsive">
+                        @if(Session::has('product_delete'))
+                            <p class="alert {{ Session::has('product_delete') ? 'alert-info' : '' }}">{{ Session::get('product_delete') }}</p>
+                        @endif
     					<table class="table table-bordered table-hover table-striped">
     						<thead>
     							<tr>
-    								<th>Id</th>
-    								<th class="width_td">Name</th>
+    								<th>#</th>
+    								<th style="width:20%" class="width_td">Name</th>
     								<th class="width_td">Type</th>
     								<th class="width_td">Amount</th>
-    								<th class="width_td">Price</th>
-                                    <th>P. Price</th>
     								<th class="width_td">Image</th>
     								<th id="description">Description</th>
     								<th colspan="2" style="text-align: center;">Action</th>

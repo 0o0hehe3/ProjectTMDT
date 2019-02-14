@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth', 'web','admin']], function(){
 		Route::post('/product/{id}/add','ProductController@doAdd')->name('admin.product.doAdd');
 		Route::get('/product/{id}/edit', 'ProductController@edit')->name('admin.product.edit');
 		Route::post('product/{id}/update', 'ProductController@update')->name('admin.product.update');
-		Route::get('/product/delete', 'ProductController@delete')->name('admin.product.delete');
+		Route::get('/product/{id_manu}/{id}/delete', 'ProductController@delete')->name('admin.product.delete');
 		//End Route Products
 
 		//Route Type Products

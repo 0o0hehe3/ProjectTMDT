@@ -1,15 +1,15 @@
 @extends('layouts.index')
 @section('content')
 <div class="col-xs-12 col-md-9 center">
-	<h3><a href="#">Laptop {{ $type->name }}</a></h3>
+	<h3><a href="#">{{ $type->name }}</a></h3>
 	<div class="row">
 		@foreach($products as $product)
 		<div class="col-sm-6 col-xs-12 col-md-4">
 			<div class="thumbnail img-center" style="height: 450px">
-				<img src="{{ $product->url_image_1 }}" alt="..." width="100%">
+				<img src="{{ $product->url_image }}" alt="..." width="100%">
 				<div class="caption">
 					<h4 style="text-align: center;">
-						Laptop {{ $product->manufacturer->name }} {{ $product->name }}
+						{{ $product->manufacturer->name }} {{ $product->name }}
 					</h4>
 
 					<div class="costs">

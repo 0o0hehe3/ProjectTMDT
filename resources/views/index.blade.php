@@ -5,13 +5,12 @@
 	<h3><a href="#">Sản Phẩm Đang Khuyến Mãi</a></h3>
 	<div class="row">
 		@foreach($products as $product)
-		@if($product->promotion > 0)
 		<div class="col-sm-6 col-xs-12 col-md-4">
 			<div class="thumbnail img-center" style="height: 450px">
-				<img src="{{ $product->url_image_1 }}" alt="..." width="100%">
+				<img src="{{ $product->url_image }}" alt="..." width="100%">
 				<div class="caption">
 					<h4 style="text-align: center;">
-						Laptop {{ $product->manufacturer->name }} {{ $product->name }}
+						{{ $product->manufacturer->name }} {{ $product->name }}
 					</h4>
 					<div class="costs">
 						<span>Giá gốc:</span> {{ $product->price }} VNĐ 
@@ -25,11 +24,11 @@
 				</div>
 			</div>
 		</div>
-		@endif
 		@endforeach
 	</div>
 
 	<div class="row center">
+		<div class="col-xs-12 col-md-12 center">
 		<h3><a href="#">Thông Tin Guitar</a></h3>
 		<div class="col-xs-12 col-sm-12 col-md-6">
 			<div class="media div-tt-img">
@@ -111,4 +110,5 @@
 		</div>
 	</div>
 </div> <!-- /.col-xs-12.col-md-3.center -->
+</div>
 @stop

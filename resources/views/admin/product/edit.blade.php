@@ -52,65 +52,12 @@
 								@endif
 							</div>
 							<div class="form-group">
-								<label>Amount</label>
-								<input class="form-control" value="{{ $product->amount }}" type="text" name="amount" placeholder="Enter Amount">
-								@if($errors->has('amount'))
-								<span style="color:red">
-									{{ $errors->first('amount')}} 
-								</span>
-								@endif
-							</div>
-							<div class="form-group">
-								<label>Price</label>
-								<input class="form-control" id="price" value="{{ $product->price }}" type="text" name="price" placeholder="Enter Price">
-								@if($errors->has('price'))
-								<span style="color:red">
-									{{ $errors->first('price')}} 
-								</span>
-								@endif
-							</div>
-							<div class="form-group">
-								<label>Promotion (%)</label>
-								<input type="text" name="promotion" id="promotion" value="{{ $product->promotion }}" class="form-control">
-								@if($errors->has('promotion'))
-								<span style="color:red">
-									{{ $errors->first('promotion')}} 
-								</span>
-								@endif
-							</div>
-							<div class="form-group">
-								<label>Promotion Price</label>
-								<input class="form-control" id="promotion_price" value="{{ $product->promotion_price }}" type="text" name="promotion_price" placeholder="Enter Promotion Price" readonly >
-								@if($errors->has('promotion_price'))
-								<span style="color:red">
-									{{ $errors->first('promotion_price')}} 
-								</span>
-								@endif
-							</div>
-							<div class="form-group">
-								<label>Images 1</label>
+								<label>Images</label>
 								<input type="file" id="img_1" name="image1">
 							</div>
 							<div class="form-group">
-								<img src="{{ $product->url_image_1 }}" alt="">
-							</div>
-							<div class="form-group">
-								<label>Images 2</label>
-								<input type="file" name="image2">
-							</div>
-							<div class="form-group">
-								<img src="{{ $product->url_image_2 }}" alt="">
-							</div>
-							<div class="form-group">
-								<label>Images 3</label>
-								<input type="file" name="image3">
-							</div>
-							<div class="form-group">
-								<img src="{{ $product->url_image_3 }}" alt="">
-							</div>
-							<div class="form-group">
 								<label>Description</label>
-								<textarea class="form-control ckeditor" rows="10" name="description" placeholder="Enter Description">{!! $product->description !!}</textarea>
+								<textarea class="form-control ckeditor" rows="10" name="description" placeholder="Enter Description">{!! old('description') ? old('description') : $product->description !!}</textarea>
 								@if($errors->has('description'))
 								<span style="color:red">
 									{{ $errors->first('description')}} 

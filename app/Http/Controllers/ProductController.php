@@ -49,64 +49,45 @@ class ProductController extends Controller
     	$rules = [
     		'name' => 'required|unique:products|max:50',
     		'type_product' => 'required',
-    		'amount' => 'required',
-    		'price' => 'required',
-    		'promotion' => 'max:100|min:0',
     		'image1' => 'required|image|max:20480|mimes:jpg,jpeg,png,gif',
-    		'image2' => 'required|image|max:20480|mimes:jpg,jpeg,png,gif',
-    		'image3' => 'required|image|max:20480|mimes:jpg,jpeg,png,gif'
         	];
         $messages = [
         	'name.required' => 'Name Field Is Required',
         	'name.unique' => 'Name Has Already Been Taken',
         	'name.max' => 'Max Length is 50',
         	'type_product.required' => 'Type Product Field Is Required',
-        	'amount.required' => 'Amount Field Is Required',
-        	'price.required' => 'Price Field Is Required',
-        	'promotion.max' => 'Max = 100%',
-        	'promotion.min' => 'Min = 0%',
         	'image1.required' => 'Image Not Null',
         	'image1.image' => "It's Not Image",
         	'image1.max' => 'Size of Image > 2Kb',
         	'image1.mimes' => '*.jpg,jpeg,png,gif',
-        	'image2.required' => 'Image Not Null',
-        	'image2.image' => "It's Not Image",
-        	'image2.max' => 'Size of Image > 2Kb',
-        	'image2.mimes' => '*.jpg,jpeg,png,gif',
-        	'image3.required' => 'Image Not Null',
-        	'image3.image' => "It's Not Image",
-        	'image3.max' => 'Size of Image > 2Kb',
-        	'image3.mimes' => '*.jpg,jpeg,png,gif',
         ];
 
         $validator = Validator::make($input, $rules, $messages);
 
         if($validator->fails()){
+            $request->flash();
         	return redirect()->route('admin.product.add')->withErrors($validator);
         } else {
+
         	$image = $request->file('image1');
-        	$image_name_1 = time().'-'.$image->getClientOriginalName();
-        	$store_path_1 = '/vendor/admin/images/product/image_1/';
-        	$destinitionPath = public_path($store_path_1);
-        	$image->move($destinitionPath,$image_name_1);
+        	$image_name = time().'-'.$image->getClientOriginalName();
+        	$store_path = '/vendor/admin/images/product/image/';
+        	$destinitionPath = public_path($store_path);
+        	$image->move($destinitionPath,$image_name);
 
         	Product::create([
-        		'name' => $input['name'],
-        		'type_id' => $input['type_product'],
-        		'manufacturer_id' => $id,
-        		'amount' => $input['amount'],
-        		'price' => $input['price'],
-        		'promotion' => $input['promotion'],
-                'promotion_price' => $input['promotion_price'],
-        		'url_image' => $store_path_1.$image_name_1,
-        		'description' => $input['description']
-        	]);
+                'name' => $input['name'],
+                'url_image' => $store_path.$image_name,
+                'type_id' => $input['type_product'],
+                'description' => $input['description'],
+                'manufacturer_id' => $id
+            ]);
 
         	return redirect()->route('admin.product.list',['id'=>$id]);
         }
     }
 
-    public function edit( $id)
+    public function edit($id)
     {
     	$product = Product::find($id);
     	$types = ProductType::all();
@@ -116,39 +97,27 @@ class ProductController extends Controller
     public function update(Request $request,$id)
     {
     	$input = $request->all();
+        $types = ProductType::all();
+        $product = Product::find($id);
+
     	$rules = [
     		'name' => 'required|unique:products,name,'.$id.'|max:50',
     		'type_product' => 'required',
-    		'amount' => 'required',
-    		'price' => 'required',
-    		'promotion' => 'required',
     		'image1' => 'image|max:20480|mimes:jpg,jpeg,png,gif',
-    		'image2' => 'image|max:20480|mimes:jpg,jpeg,png,gif',
-    		'image3' => 'image|max:20480|mimes:jpg,jpeg,png,gif'
+            'description' => 'required'
         	];
         $messages = [
         	'name.required' => 'Name Field Is Required',
         	'name.unique' => 'Name Has Already Been Taken',
         	'name.max' => 'Max Length is 50',
         	'type_product.required' => 'Type Product Field Is Required',
-        	'amount.required' => 'Amount Field Is Required',
-        	'price.required' => 'Price Field Is Required',
-            'promotion.required' => 'Promotion Field Is Required',
-        		
+            'description.required' => 'Desciption Field Is Required',
         	'image1.image' => "It's Not Image",
         	'image1.max' => 'Size of Image > 2Kb',
         	'image1.mimes' => '*.jpg,jpeg,png,gif',
-        	'image2.image' => "It's Not Image",
-        	'image2.max' => 'Size of Image > 2Kb',
-        	'image2.mimes' => '*.jpg,jpeg,png,gif',
-        	'image3.image' => "It's Not Image",
-        	'image3.max' => 'Size of Image > 2Kb',
-        	'image3.mimes' => '*.jpg,jpeg,png,gif'
         ];
 
-        $validator = Validator::make($input, $rules, $messages);
-        
-       
+        $validator = Validator::make($input, $rules, $messages);       
         
         if($validator->fails()){
         	return view('admin.product.edit', compact('product','types'))->withErrors($validator);
@@ -156,47 +125,30 @@ class ProductController extends Controller
         	$update_columns = [
         		'name' => $input['name'],
         		'type_id' => $input['type_product'],
-        		'amount' => $input['amount'],
-        		'price' => $input['price'],
-        		'promotion' => $input['promotion'],
-                'promotion_price' => $input['promotion_price'],
         		'description' => $input['description']
         	];
-        	
-        	if($request->has('url_image_1')){
+
+        	if($request->has('image1')){
         		$image = $request->file('image1');
-	        	$image_name_1 = time().'-'.$image->getClientOriginalName();
-	        	$store_path_1 = '/vendor/admin/images/product/image_1/';
+	        	$image_name = time().'-'.$image->getClientOriginalName();
+	        	$store_path = '/vendor/admin/images/product/image/';
 	        	$destinitionPath = public_path($store_path);
-	        	$image->move($destinitionPath,$image_name_1);
-	        	File::delete(public_path($product->url_image_1));
-	        	$update_columns['url_image_1'] = $store_path_1.$image_name_1;
+	        	$image->move($destinitionPath,$image_name);
+	        	File::delete(public_path($product->url_image));
+	        	$update_columns['url_image'] = $store_path.$image_name;
         	}
 
-        	if($request->has('url_image_2')){
-        		$image = $request->file('image1');
-	        	$image_name_2 = time().'-'.$image->getClientOriginalName();
-	        	$store_path_2 = '/vendor/admin/images/product/image_2/';
-	        	$destinitionPath = public_path($store_path);
-	        	$image->move($destinitionPath,$image_name_2);
-	        	File::delete(public_path($product->url_image_2));
-	        	$update_columns['url_image_2'] = $store_path_2.$image_name_2;
-        	}
-
-        	if($request->has('url_image_3')){
-        		$image = $request->file('image3');
-	        	$image_name_3 = time().'-'.$image->getClientOriginalName();
-	        	$store_path_3 = '/vendor/admin/images/product/image_3/';
-	        	$destinitionPath = public_path($store_path);
-	        	$image->move($destinitionPath,$image_name_3);
-	        	File::delete(public_path($product->url_image_3));
-	        	$update_columns['url_image_3'] = $store_path_3.$image_name_3;
-        	}
-            $types = ProductType::all();
-            $product = Product::find($id);
             $product->update($update_columns);
-
         	return redirect()->route('admin.product.list',['id'=>$product->manufacturer->id]);
         }
+    }
+
+    public function delete($id_manu,$id,Request $request)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        File::delete(public_path($product->url_image));
+        $request->session()->flash('product_delete','Xóa thành công sản phẩm '.$product->name);
+        return redirect()->route('admin.product.list',['id'=>$id_manu]);
     }
 }

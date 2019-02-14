@@ -19,7 +19,7 @@
 							@csrf
 							<div class="form-group">
 								<label>Name</label>
-								<input class="form-control" type="text" name="name" placeholder="Enter Name">
+								<input class="form-control" type="text" value="{{ old('name') }}" name="name" placeholder="Enter Name">
 							</div>
 							<div class="form-group">
 								<label>Type Product</label>
@@ -31,28 +31,8 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label>Amount</label>
-								<input class="form-control" type="text" name="amount" placeholder="Enter Amount">
-							</div>
-							<div class="form-group">
-								<label>Price</label>
-								<input class="form-control" type="text" name="price" placeholder="Enter Price">
-							</div>
-							<div class="form-group">
-								<label>Promotion Price</label>
-								<input class="form-control" type="text" name="promotion_price" placeholder="Enter Promotion Price">
-							</div>
-							<div class="form-group">
 								<label>Images 1</label>
 								<input type="file" id="img_1" name="image1">
-							</div>
-							<div class="form-group">
-								<label>Images 2</label>
-								<input type="file" name="image2">
-							</div>
-							<div class="form-group">
-								<label>Images 3</label>
-								<input type="file" name="image3">
 							</div>
 							<div class="form-group">
 								<label>Description</label>
